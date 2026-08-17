@@ -6,11 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="hanaso は、高齢者向けの電話お話し相手・見守りサービスです。機械音声ではなく学生が“お話し”し、ご家族へ簡易レポート。初回15分無料、月2,000円〜。">
   <meta name="theme-color" content="#1c5f96">
-  <!-- 公開URLが決まったら og:url / canonical を実際のURLに差し替えてください -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="canonical" href="https://hanaso0623include-star.github.io/hanaso/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="hanaso">
+  <meta property="og:url" content="https://hanaso0623include-star.github.io/hanaso/">
   <meta property="og:title" content="hanaso｜高齢者向けお話し相手・見守り電話サービス">
   <meta property="og:description" content="機械音声ではなく学生が“お話し”し、ご家族へ簡易レポート。初回15分無料、月2,000円〜。">
   <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://hanaso0623include-star.github.io/hanaso/assets/illustrations/smartphone8_obaasan.png">
+  <meta property="og:image:alt" content="電話でお話しする高齢の女性のイラスト">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="hanaso｜高齢者向けお話し相手・見守り電話サービス">
+  <meta name="twitter:description" content="機械音声ではなく学生が“お話し”し、ご家族へ簡易レポート。初回15分無料、月2,000円〜。">
+  <meta name="twitter:image" content="https://hanaso0623include-star.github.io/hanaso/assets/illustrations/smartphone8_obaasan.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,7 +28,7 @@
         "@type": "Organization",
         "name": "hanaso",
         "description": "高齢者向けの電話お話し相手・見守りサービス",
-        "email": "ryoosuke4003@gmail.com",
+        "email": "hanaso0623include@gmail.com",
         "telephone": "+81-80-8079-9969",
         "areaServed": "JP"
       },
@@ -827,6 +836,93 @@
       .chat-bubble { max-width: 78%; font-size: 18px; }
       .chat-avatar { width: 46px; height: 46px; }
     }
+
+    /* ===== 中盤のCTAバンド（同業LPの定石：無料相談を繰り返し訴求） ===== */
+    .cta-band { background: var(--main); color: #fff; text-align: center; padding: 46px 0; }
+    .cta-band h2 { color: #fff; font-size: 28px; margin-bottom: 10px; border-bottom: none; padding-bottom: 0; }
+    .cta-band p.band-lead { color: #eaf3fb; font-size: 18px; max-width: 720px; margin: 0 auto 22px; }
+    .cta-band-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-phone-lg { background: #fff; color: var(--main-dark); font-size: 26px; }
+    .btn-phone-lg:hover { background: #f0f6fc; }
+    .btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+    .cta-band-note { font-size: 15px; color: #dbe9f6; margin-top: 16px; }
+
+    /* ===== 先頭へ戻るボタン ===== */
+    .to-top {
+      position: fixed; right: 22px; bottom: 26px; z-index: 150;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--main); color: #fff; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      font-size: 28px; line-height: 1; align-items: center; justify-content: center;
+      display: none;
+    }
+    .to-top.show { display: flex; }
+    .to-top:hover { background: var(--main-dark); }
+    @media (max-width: 768px) {
+      .to-top { right: 14px; bottom: 84px; width: 52px; height: 52px; font-size: 24px; }
+    }
+
+    /* ===== 運営者の「約束」リスト ===== */
+    .founder-promise {
+      margin-top: 18px; background: #f3f8fd; border: 2px solid #d7e6f3;
+      border-radius: var(--radius); padding: 18px 20px;
+    }
+    .founder-promise-title { font-weight: 800; font-size: 19px; color: var(--main-dark); margin-bottom: 14px; }
+    .founder-promise ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .founder-promise li { display: flex; gap: 14px; align-items: center; }
+    .fp-icon { width: 52px; height: 52px; flex-shrink: 0; }
+    .founder-promise li strong { display: block; font-size: 18px; }
+    .founder-promise li span { font-size: 16px; color: var(--muted); }
+
+    /* ===== ご利用シーン ===== */
+    .scene-card {
+      display: flex; gap: 16px; align-items: center;
+      background: #fff; border-radius: var(--radius);
+      padding: 18px 20px; box-shadow: var(--shadow); border: 2px solid #d7e6f3;
+    }
+    .scene-icon { width: 58px; height: 58px; flex-shrink: 0; }
+    .scene-card p { margin: 0; font-size: 19px; }
+
+    /* 動きを控えたい方への配慮 */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== 季節のお知らせ（夏休み） ===== */
+    .season-notice {
+      background: #fff6e9; border-bottom: 2px solid #f0d6a8;
+      color: #5f4318; font-size: 17px; padding: 14px 0;
+    }
+    .season-notice .container { display: flex; align-items: flex-start; gap: 10px; }
+    .season-notice .emoji { font-size: 22px; line-height: 1.4; flex-shrink: 0; }
+    .season-notice strong { color: #a9520a; }
+
+    /* ===== 上質感の演出（スクロール表示・カードの浮き上がり） ===== */
+    .card, .scene-card, .worry-card, .promise-card {
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .card:hover, .scene-card:hover, .worry-card:hover, .promise-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      }
+    }
+    /* 動きを控えない設定のときだけ、ふわっと表示を有効化 */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+      .reveal.in { opacity: 1; transform: none; }
+      /* ヒーローのハートを、そっと鼓動させる */
+      .hero-illust-heart { display: inline-block; transform-origin: center; animation: hb 1.9s ease-in-out infinite; }
+      @keyframes hb { 0%,100%{transform:scale(1)} 14%{transform:scale(1.18)} 28%{transform:scale(1)} 42%{transform:scale(1.12)} 56%{transform:scale(1)} }
+    }
+
+    /* ===== お客様の声：無料モニター募集カード ===== */
+    .monitor-card { flex: 1; background: #fffaf0; border: 2px solid #e0b877; border-radius: var(--radius); padding: 22px 24px; }
+    .monitor-badge { display: inline-block; background: var(--accent); color: #fff; font-weight: 800; font-size: 15px; padding: 4px 14px; border-radius: 999px; margin-bottom: 12px; }
+    .monitor-title { font-size: 24px; font-weight: 800; color: #a9520a; margin-bottom: 10px; }
+    .monitor-card p { font-size: 19px; margin: 0 0 12px; }
+    .monitor-cta-note { color: var(--muted); font-size: 17px; }
   </style>
 </head>
 <body>
@@ -850,6 +946,16 @@
 </header>
 
 <main>
+  <!-- 季節のお知らせ（※9月以降は、このブロックごと削除してください） -->
+  <div class="season-notice">
+    <div class="container">
+      <span class="emoji" aria-hidden="true">🌻</span>
+      <div>
+        <strong>夏のあいだのお知らせ</strong>：8月31日までは夏休み期間のため、いつもの土日に加えて、<strong>平日もお電話のご対応ができます</strong>。「平日の昼間に、少しお話ししたいな」も大歓迎です。どうぞお気軽にご相談ください。
+      </div>
+    </div>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -866,7 +972,7 @@
           </p>
           <div class="hero-badges">
             <span class="badge badge-main">初回15分 無料体験</span>
-            <span class="badge">土日限定（学業と両立）</span>
+            <span class="badge">土日が中心（学業と両立）</span>
             <span class="badge">個人情報は厳重に管理</span>
             <span class="badge">ご家族への簡易レポートも可能</span>
           </div>
@@ -1126,7 +1232,8 @@
           </svg>
           <h3>事前の丁寧なヒアリング</h3>
           <p>
-            いきなりお電話はしません。まずご家族から、ご本人の性格・体調・話題の好み・触れてほしくない話題などを伺い、
+            <strong>最初のお電話は、ご家族と日時を決めてから。突然はかけません。</strong>
+            まずご家族から、ご本人の性格・体調・話題の好み・触れてほしくない話題などを伺い、
             無理なく楽しく話せるよう準備します。
           </p>
         </div>
@@ -1173,6 +1280,56 @@
     </div>
   </section>
 
+  <!-- Use scenes -->
+  <section id="scenes" class="section-alt">
+    <div class="container">
+      <h2>こんなときに、選ばれています</h2>
+      <p class="lead">ご家族が「そろそろかな」と感じる、きっかけの一例です。</p>
+      <div class="grid-2">
+        <div class="scene-card">
+          <svg class="scene-icon" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="遠方の実家のイラスト">
+            <rect width="58" height="58" rx="14" fill="#e6f2fb"/>
+            <rect x="19" y="27" width="20" height="16" fill="#1c5f96"/>
+            <path d="M15 28 L29 16 L43 28 Z" fill="#16496f"/>
+            <rect x="26" y="34" width="6" height="9" fill="#fff"/>
+          </svg>
+          <p>遠方で暮らす親御さんの、<strong>平日の話し相手</strong>に。なかなか帰省できない方へ。</p>
+        </div>
+        <div class="scene-card">
+          <svg class="scene-icon" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="気分転換のイラスト">
+            <rect width="58" height="58" rx="14" fill="#fbeede"/>
+            <circle cx="29" cy="29" r="9" fill="#c8620a"/>
+            <g stroke="#c8620a" stroke-width="3" stroke-linecap="round">
+              <line x1="29" y1="12" x2="29" y2="17"/><line x1="29" y1="41" x2="29" y2="46"/>
+              <line x1="12" y1="29" x2="17" y2="29"/><line x1="41" y1="29" x2="46" y2="29"/>
+              <line x1="17" y1="17" x2="20" y2="20"/><line x1="38" y1="38" x2="41" y2="41"/>
+              <line x1="41" y1="17" x2="38" y2="20"/><line x1="20" y1="38" x2="17" y2="41"/>
+            </g>
+          </svg>
+          <p>退院後や、外出が減った時期の<strong>気分転換</strong>に。</p>
+        </div>
+        <div class="scene-card">
+          <svg class="scene-icon" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="心の張り合いのイラスト">
+            <rect width="58" height="58" rx="14" fill="#fbeede"/>
+            <path d="M29 45 c-10 -7 -17 -13 -17 -21 c0 -6 5 -10 10 -10 c4 0 6 2 7 4 c1 -2 3 -4 7 -4 c5 0 10 4 10 10 c0 8 -7 14 -17 21 z" fill="#c8620a"/>
+          </svg>
+          <p>一人の時間が長くなった方の、<strong>心の張り合い</strong>に。</p>
+        </div>
+        <div class="scene-card">
+          <svg class="scene-icon" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="毎週の習慣のイラスト">
+            <rect width="58" height="58" rx="14" fill="#e6f2fb"/>
+            <rect x="15" y="19" width="28" height="24" rx="3" fill="#fff" stroke="#1c5f96" stroke-width="3"/>
+            <line x1="15" y1="26" x2="43" y2="26" stroke="#1c5f96" stroke-width="3"/>
+            <line x1="23" y1="15" x2="23" y2="21" stroke="#1c5f96" stroke-width="3" stroke-linecap="round"/>
+            <line x1="35" y1="15" x2="35" y2="21" stroke="#1c5f96" stroke-width="3" stroke-linecap="round"/>
+            <path d="M29 31 l3 3 l6 -6" fill="none" stroke="#c8620a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p>毎週の<strong>楽しみ・生活のリズム</strong>づくりに。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pricing -->
   <section id="pricing">
     <div class="container">
@@ -1209,7 +1366,7 @@
 
       <p class="pricing-note">
         ・通話料は、こちらからおかけするため <strong>ご利用者様の負担はありません</strong>。<br>
-        ・お支払い方法は、住信SBIネット銀行にお振込みいただくことになります。<br>
+        ・お支払い方法は、三井住友銀行にお振込みいただくことになります。<br>
         ・料金や回数は、ご希望に応じて個別に調整することも可能です。お気軽にご相談ください。
       </p>
     </div>
@@ -1340,35 +1497,35 @@
 
       <div class="chat">
         <div class="chat-row staff">
-          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar">
+          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">hanaso スタッフ</span>もしもし、hanaso の中村です。こんにちは。今日はいいお天気ですね。</div>
         </div>
         <div class="chat-row user">
-          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av">
+          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">ご利用者さま</span>あら、こんにちは。ほんとにねぇ、洗濯物がよく乾くわ。</div>
         </div>
         <div class="chat-row staff">
-          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar">
+          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">hanaso スタッフ</span>いいですね！ そういえば、お庭の家庭菜園はいかがですか？</div>
         </div>
         <div class="chat-row user">
-          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av">
+          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">ご利用者さま</span>トマトがね、だいぶ赤くなってきたのよ。毎朝、見るのが楽しみで。</div>
         </div>
         <div class="chat-row staff">
-          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar">
+          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">hanaso スタッフ</span>わあ、それは楽しみですね。朝ごはんも、ちゃんと召し上がれていますか？</div>
         </div>
         <div class="chat-row user">
-          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av">
+          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">ご利用者さま</span>ええ、パンと牛乳をね。夜もよく眠れてますよ。</div>
         </div>
         <div class="chat-row staff">
-          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar">
+          <img src="assets/illustrations/job_telephone_operator.png" alt="hanasoスタッフ" class="chat-avatar" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">hanaso スタッフ</span>それは何よりです。ではまた土曜日に、お電話しますね。</div>
         </div>
         <div class="chat-row user">
-          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av">
+          <img src="assets/illustrations/smartphone8_obaasan.png" alt="ご利用者さま" class="chat-avatar user-av" loading="lazy" decoding="async">
           <div class="chat-bubble"><span class="chat-name">ご利用者さま</span>はい、楽しみにしてます。ありがとうね。</div>
         </div>
       </div>
@@ -1389,19 +1546,40 @@
     </div>
   </section>
 
+  <!-- Mid-page CTA band -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>まずは「初回15分 無料」からお試しください</h2>
+      <p class="band-lead">
+        「合うかどうか、話してみてから決めたい」——それで大丈夫です。
+        ご家族の方からのお電話も大歓迎です。
+      </p>
+      <div class="cta-band-actions">
+        <a href="tel:080-8079-9969" class="btn btn-phone-lg">📞 080-8079-9969</a>
+        <a href="#contact" class="btn btn-outline-white">メール・フォームで申し込む</a>
+      </div>
+      <p class="cta-band-note">受付：土日 10:00〜17:00 ／ 通話料はこちら負担（ご本人の負担なし）</p>
+    </div>
+  </section>
+
   <!-- Voices -->
   <section id="voices" class="section-alt">
     <div class="container">
       <h2>お客様の声</h2>
-      <p class="lead">実際にご利用いただいた方の声を、これから掲載していきます。</p>
+      <p class="lead">掲載するのは“本物の声”だけ。だからこそ、最初の声を募集しています。</p>
       <div class="voices-flex">
-      <img src="assets/illustrations/ojigi_woman.png" alt="ていねいにおじぎをする女性のイラスト" class="voice-illust" width="483" height="800" loading="lazy">
-      <div class="voice-pending">
-        <strong>ただいま準備中です。</strong><br>
-        hanaso は始まったばかりのサービスです。ご利用者・ご家族の許可をいただいたうえで、
-        <strong>本当の声だけ</strong>を掲載します。よくある“やらせの口コミ”は一切いたしません。
-        まずは初回15分の無料体験で、あなた自身にお試しいただけたら嬉しいです。
-      </div>
+        <img src="assets/illustrations/ojigi_woman.png" alt="ていねいにおじぎをする女性のイラスト" class="voice-illust" width="483" height="800" loading="lazy">
+        <div class="monitor-card">
+          <span class="monitor-badge">サービス開始記念</span>
+          <div class="monitor-title">無料モニター、募集中です</div>
+          <p>
+            hanaso は始まったばかり。ご利用いただいた方に後日かんたんな感想をうかがい、
+            <strong>ご本人・ご家族の許可を得たうえで</strong>、このページに掲載していきます。
+            よくある“やらせの口コミ”は一切しません。<strong>本物の声だけ</strong>を、ここに。
+          </p>
+          <p class="monitor-cta-note">最初の声は、あなたかもしれません。まずは初回15分の無料体験から。</p>
+          <a href="#contact" class="btn btn-primary">無料体験を申し込む</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1521,9 +1699,40 @@
             同じような思いを持つご家族の力になれたらと思い、hanaso を個人で運営しています。
           </p>
           <p>
-            医療・介護の専門家ではありませんが、<strong>丁寧に耳を傾けること</strong>、<strong>約束の時間を守ること</strong>、
-            そして何より、<strong>ご本人のペースを大切にすること</strong>を心がけています。
+            医療・介護の専門家ではありません。でも、<strong>顔と名前の見える個人運営</strong>だからこそ、
+            ひとつひとつの約束を大切にできると考えています。
           </p>
+
+          <div class="founder-promise">
+            <div class="founder-promise-title">私が大切にしている、3つのこと</div>
+            <ul>
+              <li>
+                <svg class="fp-icon" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="耳を傾けるアイコン">
+                  <rect width="52" height="52" rx="14" fill="#e6f2fb"/>
+                  <path d="M13 15 h26 a4 4 0 0 1 4 4 v12 a4 4 0 0 1 -4 4 h-13 l-8 7 v-7 h-5 a4 4 0 0 1 -4 -4 v-12 a4 4 0 0 1 4 -4 z" fill="#1c5f96"/>
+                  <circle cx="21" cy="25" r="2.4" fill="#fff"/><circle cx="28" cy="25" r="2.4" fill="#fff"/><circle cx="35" cy="25" r="2.4" fill="#fff"/>
+                </svg>
+                <div><strong>丁寧に耳を傾ける</strong><span>お話を否定せず、最後までしっかり聴きます。</span></div>
+              </li>
+              <li>
+                <svg class="fp-icon" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="時間を守るアイコン">
+                  <rect width="52" height="52" rx="14" fill="#e6f2fb"/>
+                  <circle cx="26" cy="27" r="14" fill="#fff" stroke="#1c5f96" stroke-width="3"/>
+                  <line x1="26" y1="27" x2="26" y2="18" stroke="#c8620a" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="26" y1="27" x2="33" y2="30" stroke="#c8620a" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="26" cy="27" r="2" fill="#1c5f96"/>
+                </svg>
+                <div><strong>約束の時間を守る</strong><span>決まった曜日・時間に、きちんとお電話します。</span></div>
+              </li>
+              <li>
+                <svg class="fp-icon" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ペースを大切にするアイコン">
+                  <rect width="52" height="52" rx="14" fill="#fbeede"/>
+                  <path d="M26 39 c-8 -6 -14 -11 -14 -18 c0 -5 4 -8 8 -8 c3 0 5 1 6 3 c1 -2 3 -3 6 -3 c4 0 8 3 8 8 c0 7 -6 12 -14 18 z" fill="#c8620a"/>
+                </svg>
+                <div><strong>ご本人のペースを最優先</strong><span>その日の気分に合わせ、無理をさせません。</span></div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -1548,7 +1757,7 @@
           📞 080-8079-9969
         </a>
 
-        <p class="cta-hours">受付時間：土日 10:00〜17:00</p>
+        <p class="cta-hours">受付時間：土日 10:00〜17:00<br><span style="font-size:16px; color:var(--accent); font-weight:700;">※8月31日までは、平日もご対応できます</span></p>
 
         <hr class="cta-sep">
 
@@ -1556,7 +1765,7 @@
         <p class="cta-text">メールが使える方は、こちらからも受け付けています。</p>
 
         <p class="cta-email">
-          ✉ <a href="mailto:ryoosuke4003@gmail.com">ryoosuke4003@gmail.com</a>
+          ✉ <a href="mailto:hanaso0623include@gmail.com">hanaso0623include@gmail.com</a>
         </p>
 
         <p class="hero-note">※メールが難しい場合は、すべてお電話で完結できます。</p>
@@ -1627,6 +1836,9 @@
   <a href="tel:080-8079-9969">📞 電話で申し込む（無料）</a>
 </div>
 
+<!-- 先頭へ戻る -->
+<button id="toTop" class="to-top" aria-label="ページの先頭へ戻る">↑</button>
+
 <script>
   // 申し込みフォーム：入力内容からメール作成画面を開く（サーバー不要・0円）
   function hanasoSubmit(e) {
@@ -1647,10 +1859,39 @@
       'ご希望の曜日・時間帯：' + time + '\n' +
       'ご質問・伝えておきたいこと：\n' + (msg || '（なし）') + '\n';
     window.location.href =
-      'mailto:ryoosuke4003@gmail.com?subject=' + encodeURIComponent(subject) +
+      'mailto:hanaso0623include@gmail.com?subject=' + encodeURIComponent(subject) +
       '&body=' + encodeURIComponent(body);
     return false;
   }
+
+  // 「先頭へ戻る」ボタン：少しスクロールしたら表示
+  (function () {
+    var toTop = document.getElementById('toTop');
+    if (!toTop) return;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 500) { toTop.classList.add('show'); }
+      else { toTop.classList.remove('show'); }
+    });
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  // 各セクションをスクロールに合わせてふわっと表示（progressive enhancement）
+  // ・JSが動かない環境では何も足さない＝中身は普通に表示される
+  // ・「動きを控える」設定の端末では無効化してそのまま表示
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var secs = document.querySelectorAll('main > section');
+    secs.forEach(function (s) { s.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    secs.forEach(function (s) { io.observe(s); });
+  })();
 </script>
 
 </body>
