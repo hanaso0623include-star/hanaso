@@ -315,21 +315,29 @@
     /* ===== 料金 ===== */
     .pricing-table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;   /* 角丸を効かせるため collapse をやめる */
+      border-spacing: 0;
       font-size: 20px;
       background: white;
+      border: 3px solid #000;      /* 外枠（この枠に角丸がかかる） */
       border-radius: var(--radius);
-      overflow: hidden;
+      overflow: hidden;            /* 角の内側（背景・格子線）を丸く切り抜く */
       box-shadow: var(--shadow);
       margin-bottom: 16px;
     }
     .pricing-table th,
     .pricing-table td {
       padding: 16px 16px;
-      border: 3px solid #000;   /* 真っ黒の太い格子線（縦・横／高齢者にも見やすく） */
-      text-align: left;
-      vertical-align: top;
+      /* 内側の格子線だけを上・左に引く（外枠は表側で担当） */
+      border-top: 3px solid #000;
+      border-left: 3px solid #000;
+      text-align: center;
+      vertical-align: middle;
     }
+    /* 見出し行の上線と、最初の列の左線は外枠と重なるので消す */
+    .pricing-table thead th { border-top: none; }
+    .pricing-table th:first-child,
+    .pricing-table td:first-child { border-left: none; }
     .pricing-table th {
       background: var(--main);
       color: white;
@@ -708,7 +716,7 @@
 
     /* ===== スマホ：表を「カード型」に自動切替（PCは表のまま） ===== */
     @media (max-width: 640px) {
-      .pricing-table { box-shadow: none; background: transparent; }
+      .pricing-table { box-shadow: none; background: transparent; border: none; border-radius: 0; overflow: visible; }
       .pricing-table thead { display: none; }              /* 見出し行は隠す */
       .pricing-table tbody,
       .pricing-table tr,
@@ -923,6 +931,11 @@
     .monitor-title { font-size: 24px; font-weight: 800; color: #a9520a; margin-bottom: 10px; }
     .monitor-card p { font-size: 19px; margin: 0 0 12px; }
     .monitor-cta-note { color: var(--muted); font-size: 17px; }
+
+    /* 流れの「無料／有料」ラベル */
+    .step-tag { display: inline-block; font-size: 14px; font-weight: 800; border-radius: 999px; padding: 3px 12px; margin-left: 8px; vertical-align: middle; }
+    .step-tag.free { background: #eaf7ee; color: #216b3a; }
+    .step-tag.paid { background: #fff0e0; color: #a9520a; }
   </style>
 </head>
 <body>
@@ -1369,6 +1382,27 @@
         ・お支払い方法は、三井住友銀行にお振込みいただくことになります。<br>
         ・料金や回数は、ご希望に応じて個別に調整することも可能です。お気軽にご相談ください。
       </p>
+
+      <h3 style="margin-top: 30px;">料金はこれだけ。追加料金はありません</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h3>料金に含まれるもの</h3>
+          <ul>
+            <li>お電話でのお話し（1回15分 × プランの回数）</li>
+            <li>ご家族への簡易レポート（ご希望の場合）</li>
+            <li>初回15分の無料体験</li>
+            <li>ご本人に合わせた事前ヒアリング</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>追加でかからないもの</h3>
+          <ul>
+            <li>入会金・初期費用 … <strong>0円</strong></li>
+            <li>通話料 … <strong>こちら負担</strong>（ご本人の負担なし）</li>
+            <li>解約金・違約金 … <strong>なし</strong>（いつでも解約OK）</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1416,14 +1450,15 @@
     <div class="container">
       <h2>ご利用の流れ</h2>
       <p class="lead">
-        お申し込みから初回の通話までは、最短で<strong>数日以内</strong>にご案内可能です。
+        お申し込みから初回の通話までは、最短で<strong>数日以内</strong>にご案内可能です。<br>
+        <strong style="color:#216b3a;">STEP 1〜3は、すべて無料。</strong>料金がかかるのは「続けたい」と決めた STEP 4 からです。
       </p>
 
       <div class="flow">
         <div class="flow-step">
           <div class="flow-step-number">1</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">無料体験のお申し込み</div>
+            <div class="flow-step-title">無料体験のお申し込み<span class="step-tag free">無料</span></div>
             <p>
               下部のフォームまたはメールにて、<strong>ご家族の方</strong>からお申し込みください。
               ご希望の曜日・時間帯もあわせてお知らせください。
@@ -1439,7 +1474,7 @@
         <div class="flow-step">
           <div class="flow-step-number">2</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">事前ヒアリング</div>
+            <div class="flow-step-title">事前ヒアリング<span class="step-tag free">無料</span></div>
             <p>
               ご家族の方に、<strong>ご本人のご性格・体調・話題の好み</strong>などをお伺いします。
               無理のない範囲で、楽しく話せるよう準備します。
@@ -1457,7 +1492,7 @@
         <div class="flow-step">
           <div class="flow-step-number">3</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">無料体験の通話</div>
+            <div class="flow-step-title">無料体験の通話<span class="step-tag free">無料</span></div>
             <p>
               実際に15分ほどお話しさせていただき、雰囲気やペースを確認します。
               継続をご希望の場合は、そのままプランをご提案します。
@@ -1471,7 +1506,7 @@
         <div class="flow-step">
           <div class="flow-step-number">4</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">本契約・定期通話スタート</div>
+            <div class="flow-step-title">本契約・定期通話スタート<span class="step-tag paid">ここから有料</span></div>
             <p>
               プラン確定後、定期的にこちらからお電話を差し上げます。
               ご希望に応じて、<strong>簡単なご様子レポート</strong>もお送りします。
@@ -1758,6 +1793,7 @@
         </a>
 
         <p class="cta-hours">受付時間：土日 10:00〜17:00<br><span style="font-size:16px; color:var(--accent); font-weight:700;">※8月31日までは、平日もご対応できます</span></p>
+        <p style="font-size:15px; color:var(--muted); margin-top:2px;">お手数ですが、番号を通知しておかけいただけると、折り返しがスムーズです。</p>
 
         <hr class="cta-sep">
 
