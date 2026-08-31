@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>お申し込み・お問い合わせ｜hanaso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="hanasoのお申し込み・お問い合わせ。お電話一本、またはメール・かんたんフォームから。初回15分は無料でお試しいただけます。">
+  <meta name="theme-color" content="#1c5f96">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">本文へ移動</a>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">hanaso</a>
+    <nav class="pc-nav" aria-label="メインメニュー">
+      <a href="index.html">ホーム</a>
+      <a href="service.html">サービス内容</a>
+      <a href="pricing.html">料金</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about.html">運営者</a>
+    </nav>
+    <a href="tel:080-8079-9969" class="header-phone">
+      📞 080-8079-9969
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Contact / CTA -->
+  <section id="contact">
+    <div class="container">
+      <h2>お申し込み・お問い合わせ</h2>
+      <p class="lead">
+        メールが難しい方でもご安心ください。<br>
+        <strong>お電話一本で、すぐに無料体験のご案内ができます。</strong>
+      </p>
+
+      <div class="cta">
+        <div class="cta-title">お電話でのお申し込み</div>
+        <div class="cta-text">
+          ご家族の方からのお電話も大歓迎です。
+        </div>
+
+        <a href="tel:080-8079-9969" class="cta-phone">
+          📞 080-8079-9969
+        </a>
+
+        <p class="cta-hours">受付時間：土日 10:00〜17:00<br><span style="font-size:16px; color:var(--accent); font-weight:700;">※8月31日までは、平日もご対応できます</span></p>
+        <p style="font-size:15px; color:var(--muted); margin-top:2px;">お手数ですが、番号を通知しておかけいただけると、折り返しがスムーズです。</p>
+
+        <hr class="cta-sep">
+
+        <div class="cta-title">メールでのお申し込み（ご家族向け）</div>
+        <p class="cta-text">メールが使える方は、こちらからも受け付けています。</p>
+
+        <p class="cta-email">
+          ✉ <a href="mailto:hanaso0623include@gmail.com">hanaso0623include@gmail.com</a>
+        </p>
+
+        <p class="hero-note">※メールが難しい場合は、すべてお電話で完結できます。</p>
+      </div>
+
+      <div class="form">
+        <div class="cta-title" style="text-align:left;">かんたん申し込みフォーム（ご家族向け）</div>
+        <p class="cta-text" style="text-align:left;">
+          入力して送信ボタンを押すと、お使いの端末のメール作成画面が開きます。内容を確認して、そのまま送信してください。
+        </p>
+        <form id="applyForm" onsubmit="return hanasoSubmit(event)">
+          <div class="form-field">
+            <label for="f-name">お名前（ご家族の方）<span class="form-req" aria-hidden="true">※必須</span></label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="f-contact">ご連絡先（お電話 または メール）<span class="form-req" aria-hidden="true">※必須</span></label>
+            <input id="f-contact" name="contact" type="text" required>
+          </div>
+          <div class="form-field">
+            <label for="f-plan">気になっているプラン</label>
+            <select id="f-plan" name="plan">
+              <option value="まずは初回15分の無料体験">まずは初回15分の無料体験</option>
+              <option value="ライトプラン（月4回 2,000円）">ライトプラン（月4回 2,000円）</option>
+              <option value="スタンダードプラン（月8回 3,800円）">スタンダードプラン（月8回 3,800円）</option>
+              <option value="未定・まず相談したい">未定・まず相談したい</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="f-time">ご希望の曜日・時間帯</label>
+            <input id="f-time" name="time" type="text" placeholder="例：土曜の午前中">
+          </div>
+          <div class="form-field">
+            <label for="f-message">ご質問・伝えておきたいこと</label>
+            <textarea id="f-message" name="message" placeholder="ご本人のご様子や、心配なことなど（任意）"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">この内容でメールを作成する</button>
+          <p class="form-note">
+            ※送信にはお使いの端末のメール機能を使います。うまくいかない場合は、お電話（080-8079-9969）でも承ります。
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>
+      <a href="service.html">サービス内容</a>
+      <a href="pricing.html">料金</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about.html">運営者</a>
+      <a href="contact.html">お申し込み</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    </div>
+    <div>
+      個人運営のため、対応できる件数には限りがあります。あらかじめご了承ください。<br>
+      本サービスは医療行為・介護サービスではなく、「日常会話」と「さりげない見守り」を目的としたものです。
+    </div>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a href="tel:080-8079-9969">📞 電話で申し込む（無料）</a>
+</div>
+
+<button id="toTop" class="to-top" aria-label="ページの先頭へ戻る">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
