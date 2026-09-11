@@ -73,6 +73,13 @@
       text-decoration: none;
       display: inline-block;
     }
+    .logo-kana {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-left: 4px;
+      letter-spacing: 0.04em;
+    }
 
     .header-phone {
       display: inline-flex;
