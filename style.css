@@ -919,3 +919,11 @@
     @media (prefers-reduced-motion: reduce) {
       .ring { animation: none; }
     }
+
+    /* ヒーロー：画像を上寄せ／サービス名の太字を1行に */
+    .hero-illust-wrap { align-self: start; }
+    .hero-oneline { white-space: nowrap; }
+    @media (max-width: 600px) { .hero-oneline { white-space: normal; } }
+
+    /* ヒーロー：ボタンを画像の下（右カラム）に置き、バッジの横・空きスペースを埋める */
+    .hero-illust-wrap .hero-actions { justify-content: center; margin-top: 22px; margin-bottom: 0; }

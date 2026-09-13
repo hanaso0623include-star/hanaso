@@ -7,9 +7,9 @@
     var plan = el['plan'].value;
     var time = el['time'].value.trim();
     var msg = el['message'].value.trim();
-    var subject = 'hanaso 申し込み・お問い合わせ（' + (name || 'お名前未記入') + ' 様）';
+    var subject = 'はなそう(HanasO) 申し込み・お問い合わせ（' + (name || 'お名前未記入') + ' 様）';
     var body =
-      'hanaso お申し込み・お問い合わせ\n' +
+      'はなそう(HanasO) お申し込み・お問い合わせ\n' +
       '--------------------------------\n' +
       'お名前：' + name + '\n' +
       'ご連絡先：' + contact + '\n' +
