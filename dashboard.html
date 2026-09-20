@@ -148,7 +148,8 @@
       var h='<table><thead><tr><th>ページ</th><th class="n">閲覧数</th><th class="n">訪問数</th></tr></thead><tbody>';
       rows.forEach(function(r){
         var name=PAGE[r.path]||r.path; var w=Math.max(3,(r.pageviews/max)*100);
-        h+='<tr><td><div style="font-weight:600">'+esc(name)+'</div>'+
+        var href='https://hanaso0623include-star.github.io'+r.path;
+        h+='<tr><td><div style="font-weight:600"><a href="'+href+'" target="_blank" rel="noopener">'+esc(name)+' ↗</a></div>'+
            '<div style="height:7px;background:#e6ecf3;border-radius:4px;margin-top:5px"><div style="height:7px;width:'+w+'%;background:#4f7bb0;border-radius:4px"></div></div>'+
            '<div style="color:var(--muted);font-size:11px;margin-top:3px">'+esc(r.path)+'</div></td>'+
            '<td class="n">'+r.pageviews+'</td><td class="n">'+r.visits+'</td></tr>';
