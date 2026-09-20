@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>はなそう アクセス解析（デモ画面）</title>
+  <title>はなそう アクセス解析</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <style>
@@ -14,198 +14,185 @@
     body{ margin:0; background:#e7e4db; color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; font-size:13px; }
     a{ color:var(--blue); }
-    .demo-note{ background:#fff6e0; border-bottom:2px solid #e6c368; color:#6b4a12; padding:11px 18px; font-size:14px; line-height:1.6; }
-    .demo-note b{ color:#a9520a; }
-    .top{ background:#fff; border-bottom:1px solid var(--line); padding:13px 20px; display:flex; align-items:baseline; gap:12px; }
+    .live-note{ background:#e8f5e9; border-bottom:2px solid #7bbf86; color:#255c2e; padding:11px 18px; font-size:14px; line-height:1.6; }
+    .live-note b{ color:#1b7a2c; }
+    .top{ background:#fff; border-bottom:1px solid var(--line); padding:13px 20px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
     .top h1{ font-size:20px; margin:0; color:#4a463d; }
     .top span{ color:var(--muted); font-size:13px; }
+    .top .reload{ margin-left:auto; }
+    .top button{ border:1px solid var(--line); background:#fff; color:#4a463d; padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; }
+    .top button:hover{ background:var(--sub); }
     .wrap{ max-width:1400px; margin:0 auto; padding:16px 14px 50px;
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:16px; align-items:start; }
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:16px; align-items:start; }
     .panel{ background:#fff; border:1px solid var(--line); border-radius:2px; overflow:hidden; }
     .panel > h2{ margin:0; font-size:15px; font-weight:600; padding:9px 14px; background:var(--head); color:var(--headtxt); }
-    /* 訪問者一覧 */
     .kvhead{ display:flex; background:var(--sub); border-bottom:1px solid var(--line); font-weight:600; color:#4a463d; }
-    .kvhead div{ padding:8px 14px; } .kvhead .c1{ flex:1; } .kvhead .c2,.kvhead .c3{ width:90px; text-align:right; }
+    .kvhead div{ padding:8px 14px; } .kvhead .c1{ flex:1; } .kvhead .c2,.kvhead .c3{ width:110px; text-align:right; }
     .kvrow{ display:flex; border-bottom:1px solid #eee7dc; }
-    .kvrow div{ padding:8px 14px; } .kvrow .c1{ flex:1; } .kvrow .c2,.kvrow .c3{ width:90px; text-align:right; }
-    .visit{ border-bottom:1px solid #eee7dc; }
-    .visit .r1{ padding:7px 14px 2px; background:var(--band); }
-    .visit .r2{ padding:2px 14px; color:#555; }
-    .visit .r3{ padding:2px 14px 8px; color:var(--muted); font-size:12px; }
-    .flag{ display:inline-block; width:14px; height:10px; background:#e60012; vertical-align:baseline; margin:0 4px; border:1px solid #ccc; }
-    .flag.us{ background:linear-gradient(#b22,#b22 33%,#fff 33%,#fff 66%,#3c3b6e 66%); }
-    .ico{ display:inline-block; width:14px; height:14px; border-radius:3px; vertical-align:-2px; margin:0 2px; }
-    .ico.chrome{ background:conic-gradient(#ea4335 0 33%,#4285f4 33% 66%,#34a853 66%); border-radius:50%; }
-    .ico.safari{ background:#1a86f0; border-radius:50%; }
-    .ico.win{ background:#4285f4; } .ico.and{ background:#3ddc84; }
-    .foot{ display:flex; align-items:center; justify-content:center; gap:10px; padding:10px; color:var(--muted); border-top:1px solid #eee7dc; }
-    /* 一般テーブル */
+    .kvrow div{ padding:10px 14px; } .kvrow .c1{ flex:1; } .kvrow .c2,.kvrow .c3{ width:110px; text-align:right; }
+    .kvrow .big{ font-size:20px; font-weight:800; color:var(--blue); }
     table{ width:100%; border-collapse:collapse; }
     thead th{ background:var(--sub); color:#4a463d; text-align:left; padding:8px 14px; font-weight:600; border-bottom:1px solid var(--line); }
-    thead th.n{ text-align:right; width:70px; }
+    thead th.n{ text-align:right; width:80px; }
     td{ padding:9px 14px; border-bottom:1px solid #eee7dc; }
-    td.n{ text-align:right; color:#333; white-space:nowrap; }
+    td.n{ text-align:right; color:#333; white-space:nowrap; font-weight:600; }
     tr:last-child td{ border-bottom:none; }
-    .fav{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:8px; border-radius:2px; }
-    .yh{ background:#5b0dab; } .gg{ background:#4285f4; } .bn{ background:#00897b; } .dc{ background:#e60012; }
-    /* 時間帯バー */
+    .empty{ padding:16px 14px; color:var(--muted); }
     .bars{ display:flex; align-items:flex-end; gap:4px; height:170px; padding:16px 16px 0; }
-    .bars .bar{ flex:1; background:var(--bar); min-height:2px; }
+    .bars .bar{ flex:1; background:var(--bar); min-height:2px; border-radius:2px 2px 0 0; }
     .bars-x{ display:flex; gap:4px; padding:5px 16px 14px; color:var(--muted); font-size:11px; }
     .bars-x span{ flex:1; text-align:center; }
-    /* コンバージョン折れ線 */
-    .conv-body{ padding:14px; }
-    .line{ width:100%; height:120px; display:block; }
-    .conv-stat{ display:flex; align-items:center; gap:12px; margin-top:14px; }
-    .conv-stat .spark{ width:120px; height:30px; }
-    .conv-stat b{ font-size:18px; }
-    .conv-goal{ margin-top:14px; font-weight:700; }
-    .muted{ color:var(--muted); }
+    .line-wrap{ padding:14px; }
+    .line{ width:100%; height:150px; display:block; }
+    .line-x{ display:flex; justify-content:space-between; color:var(--muted); font-size:11px; margin-top:4px; }
+    .loading{ text-align:center; padding:60px 20px; color:var(--muted); font-size:15px; }
+    .fav{ width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:8px; border-radius:2px; background:#bbb; }
   </style>
 </head>
 <body>
-  <div class="demo-note">
-    <b>これはデモ画面です（数字はサンプルの"飾り"です）。</b>
-    あきばれHPの管理画面と同じ見た目にしてありますが、数字は本物ではありません。
-    はなそうの<b>本物のアクセス数</b>を出すには、各ページに入れてある解析タグを公開（＝最新distをGitHubにアップ）すれば、この画面が本物のデータで自動表示されます。
+  <div class="live-note">
+    <b>✅ 本物のアクセスデータです。</b>
+    はなそうサイト（<span id="siteName">hanaso0623include-star.github.io</span>）の実際の数字を、Cloudflareから自動で取得して表示しています。
+    ページを開くたび最新になります。<span style="color:#6b7a6d;">（※プライバシー保護のため、個別の訪問者IPは表示されません）</span>
   </div>
 
   <div class="top">
     <h1>はなそう アクセス解析</h1>
-    <span>（デモ表示 ／ サンプルデータ）</span>
+    <span id="updated">読み込み中…</span>
+    <span class="reload"><button onclick="load()">↻ 最新に更新</button></span>
   </div>
 
-  <div class="wrap">
+  <div id="loading" class="loading">本物のアクセスデータを読み込んでいます…</div>
+  <div id="wrap" class="wrap" style="display:none">
 
-    <!-- 現在の訪問者 -->
+    <!-- サマリー -->
     <div class="panel">
       <h2>現在の訪問者</h2>
-      <div class="kvhead"><div class="c1">日付</div><div class="c2">訪問数</div><div class="c3">ページ閲覧数</div></div>
-      <div class="kvrow"><div class="c1">最近の 24 時間</div><div class="c2">142</div><div class="c3">214</div></div>
-      <div class="kvrow"><div class="c1">最近の 30 分</div><div class="c2">7</div><div class="c3">8</div></div>
-
-      <div class="visit">
-        <div class="r1">9月6日(日) - 11:39:29 <span class="flag"></span><span class="ico safari"></span><span class="ico and"></span> - IP: 104.28.83.199</div>
-        <div class="r2">直接アクセス</div>
-        <div class="r3">ページ（URL）： 🗂</div>
-      </div>
-      <div class="visit">
-        <div class="r1">9月6日(日) - 11:29:53 <span class="flag"></span><span class="ico safari"></span><span class="ico and"></span> - IP: 126.194.94.133</div>
-        <div class="r2">直接アクセス</div>
-        <div class="r3">ページ（URL）： 🗂</div>
-      </div>
-      <div class="visit">
-        <div class="r1">9月6日(日) - 11:28:48 <span class="flag us"></span><span class="ico chrome"></span><span class="ico win"></span> - IP: 104.28.225.16</div>
-        <div class="r2">から <a href="#">search.yahoo.co.jp</a></div>
-        <div class="r3">ページ（URL）： 🗂</div>
-      </div>
-      <div class="visit">
-        <div class="r1">9月6日(日) - 11:16:57 <span class="flag"></span><span class="ico chrome"></span><span class="ico win"></span> - IP: 210.248.142.20</div>
-        <div class="r2">直接アクセス</div>
-        <div class="r3">ページ（URL）： 🗂</div>
-      </div>
-      <div class="visit">
-        <div class="r1">9月6日(日) - 11:07:50 <span class="muted">(1 秒)</span> <span class="flag"></span><span class="ico safari"></span><span class="ico and"></span> - IP: 193.116.21.2</div>
-        <div class="r2">から <a href="#">Google</a> - "（非公開の流入キーワード）"</div>
-        <div class="r3">ページ（URL）： 🗂 🟪</div>
-      </div>
-      <div class="foot">⏸ ▶ <a href="#" style="margin-left:auto">詳細な訪問者履歴を表示</a></div>
+      <div class="kvhead"><div class="c1">期間</div><div class="c2">訪問数</div><div class="c3">ページ閲覧数</div></div>
+      <div class="kvrow"><div class="c1">最近の 24 時間</div><div class="c2 big" id="v24">0</div><div class="c3" id="p24">0</div></div>
+      <div class="kvrow"><div class="c1">最近の 30 日</div><div class="c2 big" id="v30">0</div><div class="c3" id="p30">0</div></div>
     </div>
 
-    <!-- 流入キーワード -->
+    <!-- 推移 -->
     <div class="panel">
-      <h2>流入キーワード一覧</h2>
-      <table>
-        <thead><tr><th>流入キーワード</th><th class="n">訪問数</th></tr></thead>
-        <tbody><tr><td>（非公開の流入キーワード）</td><td class="n">28</td></tr></tbody>
-      </table>
-      <div class="foot">1-1 / 1</div>
-    </div>
-
-    <!-- 検索エンジン -->
-    <div class="panel">
-      <h2>検索エンジン別訪問数</h2>
-      <table>
-        <thead><tr><th>検索エンジン</th><th class="n">訪問数</th></tr></thead>
-        <tbody>
-          <tr><td><span class="fav gg"></span>Google</td><td class="n">28</td></tr>
-          <tr><td><span class="fav bn"></span>Bing</td><td class="n">4</td></tr>
-        </tbody>
-      </table>
-      <div class="foot">1-2 / 2</div>
-    </div>
-
-    <!-- 参照元 -->
-    <div class="panel">
-      <h2>参照元の外部ウェブサイト一覧</h2>
-      <table>
-        <thead><tr><th>ウェブサイト</th><th class="n">訪問数</th></tr></thead>
-        <tbody>
-          <tr><td><span class="fav yh"></span>search.yahoo.co.jp</td><td class="n">38</td></tr>
-          <tr><td><span class="fav bn"></span>www.bing.com</td><td class="n">4</td></tr>
-          <tr><td><span class="fav dc"></span>service.smt.docomo.ne.jp</td><td class="n">2</td></tr>
-        </tbody>
-      </table>
-      <div class="foot">1-3 / 3</div>
-    </div>
-
-    <!-- 最近のコンバージョン -->
-    <div class="panel">
-      <h2>最近のコンバージョン</h2>
-      <div class="conv-body">
-        <svg class="line" viewBox="0 0 400 120" preserveAspectRatio="none">
-          <polyline fill="none" stroke="#4f7bb0" stroke-width="2"
-            points="0,95 30,80 60,92 90,70 120,45 150,78 180,88 210,55 240,72 270,68 300,40 330,75 360,70 400,62"/>
-          <g fill="#4f7bb0">
-            <circle cx="120" cy="45" r="3"/><circle cx="210" cy="55" r="3"/><circle cx="300" cy="40" r="3"/>
-          </g>
-        </svg>
-        <div class="muted" style="display:flex;justify-content:space-between;font-size:11px;margin-top:4px">
-          <span>8月7日(金)</span><span>8月14日(金)</span><span>8月21日(金)</span><span>8月28日(金)</span><span>9月4日(金)</span>
-        </div>
-        <div class="conv-stat"><b>0</b> コンバージョン</div>
-        <div class="conv-stat"><b>0.0%</b> 総コンバージョン率（目標達成訪問）</div>
-        <div class="conv-goal">目標「お問合せフォーム」</div>
-        <div class="muted"><b>0</b> コンバージョン（0 訪問数） ／ 0.0%</div>
+      <h2>アクセスの推移（30日）</h2>
+      <div class="line-wrap">
+        <svg class="line" id="trend" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
+        <div class="line-x" id="trendx"></div>
       </div>
     </div>
 
     <!-- 時間帯別 -->
     <div class="panel">
-      <h2>時間帯別訪問数</h2>
-      <div class="bars">
-        <div class="bar" style="height:20%"></div><div class="bar" style="height:6%"></div>
-        <div class="bar" style="height:3%"></div><div class="bar" style="height:2%"></div>
-        <div class="bar" style="height:22%"></div><div class="bar" style="height:10%"></div>
-        <div class="bar" style="height:62%"></div><div class="bar" style="height:40%"></div>
-        <div class="bar" style="height:62%"></div><div class="bar" style="height:50%"></div>
-        <div class="bar" style="height:95%"></div><div class="bar" style="height:50%"></div>
-        <div class="bar" style="height:56%"></div><div class="bar" style="height:26%"></div>
-        <div class="bar" style="height:56%"></div><div class="bar" style="height:50%"></div>
-        <div class="bar" style="height:95%"></div><div class="bar" style="height:46%"></div>
-        <div class="bar" style="height:14%"></div><div class="bar" style="height:30%"></div>
-        <div class="bar" style="height:20%"></div><div class="bar" style="height:14%"></div>
-        <div class="bar" style="height:12%"></div><div class="bar" style="height:10%"></div>
-      </div>
-      <div class="bars-x"><span>0時</span><span>2時</span><span>4時</span><span>6時</span><span>8時</span><span>10時</span><span>12時</span><span>14時</span><span>16時</span><span>18時</span><span>20時</span><span>22時</span></div>
+      <h2>時間帯別 訪問数（24時間）</h2>
+      <div class="bars" id="hours"></div>
+      <div class="bars-x"><span>0時</span><span>3時</span><span>6時</span><span>9時</span><span>12時</span><span>15時</span><span>18時</span><span>21時</span></div>
+    </div>
+
+    <!-- 参照元 -->
+    <div class="panel">
+      <h2>参照元の外部ウェブサイト</h2>
+      <div id="referer"></div>
+    </div>
+
+    <!-- 検索エンジン -->
+    <div class="panel">
+      <h2>検索エンジン別 訪問数</h2>
+      <div id="search"></div>
     </div>
 
     <!-- 地域 -->
     <div class="panel">
       <h2>訪問者の地域</h2>
-      <table>
-        <thead><tr><th>City</th><th class="n">訪問者数</th></tr></thead>
-        <tbody>
-          <tr><td>？ 不明</td><td class="n">59</td></tr>
-          <tr><td><span class="flag" style="width:12px"></span> Tokyo, Tokyo, 日本</td><td class="n">7</td></tr>
-          <tr><td><span class="flag" style="width:12px"></span> Nobeoka, Miyazaki, 日本</td><td class="n">1</td></tr>
-          <tr><td><span class="flag" style="width:12px"></span> Osaka, Osaka, 日本</td><td class="n">4</td></tr>
-          <tr><td><span class="flag" style="width:12px"></span> Fukuoka, Fukuoka, 日本</td><td class="n">2</td></tr>
-        </tbody>
-      </table>
-      <div class="foot">1-5 / 63 &nbsp; <a href="#">次へ›</a></div>
+      <div id="country"></div>
+    </div>
+
+    <!-- ブラウザ -->
+    <div class="panel">
+      <h2>ブラウザ別 訪問数</h2>
+      <div id="browser"></div>
     </div>
 
   </div>
+
+  <script>
+    var WORKER_URL = 'https://hanaso-analytics.ryoosuke4003.workers.dev/';
+
+    var COUNTRY = { JP:'日本', US:'アメリカ', CN:'中国', KR:'韓国', TW:'台湾', GB:'イギリス', DE:'ドイツ', FR:'フランス', CA:'カナダ', AU:'オーストラリア', IN:'インド', SG:'シンガポール', TH:'タイ', VN:'ベトナム', PH:'フィリピン' };
+    var REF_NAME = { 't.co':'X（旧Twitter）', 'l.instagram.com':'Instagram', 'lm.facebook.com':'Facebook', 'm.facebook.com':'Facebook', 'www.google.com':'Google', 'search.yahoo.co.jp':'Yahoo! JAPAN' };
+
+    function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+    function table(rows, labelFn){
+      if(!rows || !rows.length) return '<div class="empty">まだデータがありません。</div>';
+      var h = '<table><thead><tr><th>名前</th><th class="n">訪問数</th></tr></thead><tbody>';
+      rows.forEach(function(r){ h += '<tr><td><span class="fav"></span>'+esc(labelFn(r))+'</td><td class="n">'+r.visits+'</td></tr>'; });
+      return h + '</tbody></table>';
+    }
+
+    function render(d){
+      document.getElementById('v24').textContent = d.total24h.visits;
+      document.getElementById('p24').textContent = d.total24h.pageviews;
+      document.getElementById('v30').textContent = (d.total30d? d.total30d.visits : 0);
+      document.getElementById('p30').textContent = (d.total30d? d.total30d.pageviews : 0);
+
+      var upd = new Date(d.updated);
+      document.getElementById('updated').textContent = '最終更新：' + upd.toLocaleString('ja-JP');
+
+      // 推移（直近30日をゼロ埋め）
+      var byDate = {}; (d.byDay||[]).forEach(function(r){ byDate[r.date]=r.visits; });
+      var days=[], series=[]; var now=new Date();
+      for(var i=29;i>=0;i--){ var dt=new Date(now.getTime()-i*86400000); var key=dt.toISOString().slice(0,10); days.push(key); series.push(byDate[key]||0); }
+      var max=Math.max(1, Math.max.apply(null, series));
+      var pts = series.map(function(v,i){ var x=(i/(series.length-1))*400; var y=150-(v/max)*140-5; return x.toFixed(1)+','+y.toFixed(1); }).join(' ');
+      var area = '0,150 '+pts+' 400,150';
+      document.getElementById('trend').innerHTML =
+        '<polygon points="'+area+'" fill="rgba(79,123,176,0.12)"/>'+
+        '<polyline points="'+pts+'" fill="none" stroke="#4f7bb0" stroke-width="2"/>';
+      document.getElementById('trendx').innerHTML = '<span>'+days[0].slice(5)+'</span><span>'+days[14].slice(5)+'</span><span>'+days[29].slice(5)+'</span>';
+
+      // 時間帯
+      var hmax=Math.max(1, Math.max.apply(null,(d.byHour||[]).map(function(x){return x.visits;})));
+      document.getElementById('hours').innerHTML = (d.byHour||[]).map(function(x){
+        return '<div class="bar" style="height:'+Math.max(2,(x.visits/hmax)*100)+'%" title="'+x.hour+'時：'+x.visits+'"></div>';
+      }).join('');
+
+      // 参照元
+      document.getElementById('referer').innerHTML = table(d.byReferer, function(r){ return REF_NAME[r.name]? REF_NAME[r.name]+'（'+r.name+'）' : r.name; });
+
+      // 検索エンジン（参照元から抽出）
+      var engines=[];
+      (d.byReferer||[]).forEach(function(r){
+        var n=r.name.toLowerCase(); var e=null;
+        if(n.indexOf('google')>=0)e='Google'; else if(n.indexOf('bing')>=0)e='Bing';
+        else if(n.indexOf('yahoo')>=0)e='Yahoo!'; else if(n.indexOf('duckduckgo')>=0)e='DuckDuckGo';
+        if(e){ var f=engines.find(function(x){return x.name===e;}); if(f)f.visits+=r.visits; else engines.push({name:e,visits:r.visits}); }
+      });
+      engines.sort(function(a,b){return b.visits-a.visits;});
+      document.getElementById('search').innerHTML = engines.length? table(engines,function(r){return r.name;})
+        : '<div class="empty">まだ検索エンジンからの訪問はありません。<br>（今はSNSのリンクからの訪問が中心です）</div>';
+
+      // 地域
+      document.getElementById('country').innerHTML = table(d.byCountry, function(r){ return COUNTRY[r.name]||r.name; });
+
+      // ブラウザ
+      document.getElementById('browser').innerHTML = table(d.byBrowser, function(r){ return r.name; });
+
+      document.getElementById('loading').style.display='none';
+      document.getElementById('wrap').style.display='grid';
+    }
+
+    function load(){
+      document.getElementById('loading').style.display='block';
+      document.getElementById('loading').textContent='本物のアクセスデータを読み込んでいます…';
+      document.getElementById('wrap').style.display='none';
+      fetch(WORKER_URL, {cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+        if(!d || d.ok===false){ throw new Error(d && d.error || 'データ取得に失敗しました'); }
+        render(d);
+      }).catch(function(e){
+        document.getElementById('loading').textContent = '読み込みに失敗しました：' + e.message + '（時間をおいて「最新に更新」を押してください）';
+      });
+    }
+    load();
+  </script>
 </body>
 </html>
