@@ -135,6 +135,14 @@
     };
     function renderPages(rows){
       rows = (rows||[]).filter(function(r){ return r.path.indexOf('dashboard')<0; });
+      // 同じページ（/ と /index.html など）を合算
+      var m = {};
+      rows.forEach(function(r){
+        var key = r.path.replace(/index\.html$/,'').replace(/\/+$/,'/') || '/';
+        if(!m[key]) m[key] = { path:key, pageviews:0, visits:0 };
+        m[key].pageviews += r.pageviews; m[key].visits += r.visits;
+      });
+      rows = Object.keys(m).map(function(k){return m[k];}).sort(function(a,b){return b.pageviews-a.pageviews;});
       if(!rows.length) return '<div class="empty">まだページ別データがありません。</div>';
       var max=Math.max.apply(null, rows.map(function(r){return r.pageviews;}));
       var h='<table><thead><tr><th>ページ</th><th class="n">閲覧数</th><th class="n">訪問数</th></tr></thead><tbody>';
