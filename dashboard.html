@@ -73,6 +73,12 @@
       <div class="kvrow"><div class="c1">最近の 30 日</div><div class="c2 big" id="v30">0</div><div class="c3" id="p30">0</div></div>
     </div>
 
+    <!-- ページ別 -->
+    <div class="panel" style="grid-column:1/-1">
+      <h2>ページ別 アクセス数（30日）＝どのページが見られているか</h2>
+      <div id="pages"></div>
+    </div>
+
     <!-- 推移 -->
     <div class="panel">
       <h2>アクセスの推移（30日）</h2>
@@ -120,6 +126,27 @@
 
     var COUNTRY = { JP:'日本', US:'アメリカ', CN:'中国', KR:'韓国', TW:'台湾', GB:'イギリス', DE:'ドイツ', FR:'フランス', CA:'カナダ', AU:'オーストラリア', IN:'インド', SG:'シンガポール', TH:'タイ', VN:'ベトナム', PH:'フィリピン' };
     var REF_NAME = { 't.co':'X（旧Twitter）', 'l.instagram.com':'Instagram', 'lm.facebook.com':'Facebook', 'm.facebook.com':'Facebook', 'www.google.com':'Google', 'search.yahoo.co.jp':'Yahoo! JAPAN' };
+    var PAGE = {
+      '/hanaso/':'トップページ', '/hanaso/index.html':'トップページ',
+      '/hanaso/service.html':'サービス内容', '/hanaso/pricing.html':'料金',
+      '/hanaso/faq.html':'よくある質問', '/hanaso/about.html':'運営者',
+      '/hanaso/contact.html':'お申し込み・お問い合わせ',
+      '/hanaso/privacy.html':'プライバシーポリシー', '/hanaso/tokushoho.html':'特定商取引法に基づく表記'
+    };
+    function renderPages(rows){
+      rows = (rows||[]).filter(function(r){ return r.path.indexOf('dashboard')<0; });
+      if(!rows.length) return '<div class="empty">まだページ別データがありません。</div>';
+      var max=Math.max.apply(null, rows.map(function(r){return r.pageviews;}));
+      var h='<table><thead><tr><th>ページ</th><th class="n">閲覧数</th><th class="n">訪問数</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        var name=PAGE[r.path]||r.path; var w=Math.max(3,(r.pageviews/max)*100);
+        h+='<tr><td><div style="font-weight:600">'+esc(name)+'</div>'+
+           '<div style="height:7px;background:#e6ecf3;border-radius:4px;margin-top:5px"><div style="height:7px;width:'+w+'%;background:#4f7bb0;border-radius:4px"></div></div>'+
+           '<div style="color:var(--muted);font-size:11px;margin-top:3px">'+esc(r.path)+'</div></td>'+
+           '<td class="n">'+r.pageviews+'</td><td class="n">'+r.visits+'</td></tr>';
+      });
+      return h+'</tbody></table>';
+    }
 
     function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
     function table(rows, labelFn){
@@ -137,6 +164,8 @@
 
       var upd = new Date(d.updated);
       document.getElementById('updated').textContent = '最終更新：' + upd.toLocaleString('ja-JP');
+
+      document.getElementById('pages').innerHTML = renderPages(d.byPath);
 
       // 推移（直近30日をゼロ埋め）
       var byDate = {}; (d.byDay||[]).forEach(function(r){ byDate[r.date]=r.visits; });
