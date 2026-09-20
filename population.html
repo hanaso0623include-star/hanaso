@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>高齢者の現状データ｜人口・高齢化率の推移とこれから｜はなそう</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="日本の高齢者はいま何人？高齢化率の推移とこれからの予測を、内閣府『高齢社会白書』などの公的データでわかりやすくグラフ化。2023年の高齢化率29.1％、2070年には2.6人に1人が65歳以上に。">
+  <meta name="theme-color" content="#1c5f96">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin:24px 0; }
+    .stat{ background:#fff; border:1px solid #e7e2d6; border-radius:14px; padding:20px; box-shadow:0 8px 24px rgba(28,95,150,.08); }
+    .stat .big{ font-size:40px; font-weight:800; color:#1c5f96; line-height:1.1; }
+    .stat .lbl{ margin-top:6px; color:#4a545e; font-size:16px; }
+    .chart-box{ background:#fff; border:1px solid #e7e2d6; border-radius:14px; padding:20px; margin:22px 0; box-shadow:0 8px 24px rgba(28,95,150,.08); overflow-x:auto; }
+    .chart-box h3{ margin:0 0 6px; font-size:20px; color:#1f2933; }
+    .chart-box .cap{ color:#4a545e; font-size:15px; margin:0 0 12px; }
+    .src{ color:#6a6459; font-size:14px; margin-top:10px; }
+    .src a{ color:#1c5f96; }
+    .legend{ display:flex; gap:18px; flex-wrap:wrap; font-size:14px; color:#4a545e; margin-top:8px; }
+    .legend i{ display:inline-block; width:22px; height:0; border-top:3px solid #1c5f96; vertical-align:middle; margin-right:6px; }
+    .legend i.dash{ border-top:3px dashed #e08a2b; }
+    .takeaway{ background:#eef5fb; border-left:6px solid #1c5f96; border-radius:10px; padding:16px 18px; margin:22px 0; font-size:18px; }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">本文へ移動</a>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">はなそう</a>
+    <nav class="pc-nav" aria-label="メインメニュー">
+      <a href="index.html">ホーム</a>
+      <a href="service.html">サービス内容</a>
+      <a href="pricing.html">料金</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about.html">運営者</a>
+    </nav>
+    <a href="tel:080-8079-9969" class="header-phone">
+      <span class="ring" aria-hidden="true">📞</span> 080-8079-9969
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <div class="container"><a href="index.html">ホーム</a><span class="bc-sep" aria-hidden="true">›</span><span aria-current="page">高齢者の現状データ</span></div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <h2>日本の高齢者の「いま」と「これから」</h2>
+      <p class="lead">
+        「はなそう」がなぜ必要とされるのか——その背景にある、日本の高齢化の現実を、
+        <strong>公的な統計データ</strong>でわかりやすくまとめました。数字は内閣府『高齢社会白書』などに基づいています。
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat"><div class="big">29.1%</div><div class="lbl">高齢化率（総人口に占める65歳以上の割合／2023年）</div></div>
+        <div class="stat"><div class="big">3,623万人</div><div class="lbl">65歳以上の人口（2023年10月）</div></div>
+        <div class="stat"><div class="big">2.6人に1人</div><div class="lbl">2070年に65歳以上になる見込み（約38.7%）</div></div>
+        <div class="stat"><div class="big">約4人に1人</div><div class="lbl">2070年に75歳以上になる見込み</div></div>
+      </div>
+
+      <div class="chart-box">
+        <h3>グラフ①　高齢化率の推移とこれから（1970→2070年）</h3>
+        <p class="cap">総人口に占める65歳以上の割合。7%で「高齢化社会」、14%で「高齢社会」、21%で「超高齢社会」と呼ばれます。</p>
+        <svg viewBox="0 0 720 360" role="img" aria-label="高齢化率の推移グラフ" style="width:100%;min-width:560px;height:auto">
+          <!-- 目盛り線（14% 高齢社会 / 21% 超高齢社会） -->
+          <line x1="60" y1="310" x2="700" y2="310" stroke="#ccc" stroke-width="1"/>
+          <line x1="60" y1="20" x2="60" y2="310" stroke="#ccc" stroke-width="1"/>
+          <line x1="60" y1="208" x2="700" y2="208" stroke="#e6c368" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="66" y="203" font-size="13" fill="#a9820a">14%（高齢社会・1994年）</text>
+          <line x1="60" y1="154" x2="700" y2="154" stroke="#e08a2b" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="66" y="149" font-size="13" fill="#c96a10">21%（超高齢社会・2007年）</text>
+          <!-- 実績（実線） -->
+          <polyline points="60,258.5 208.8,207.8 289.4,154.1 388.6,99" fill="none" stroke="#1c5f96" stroke-width="3"/>
+          <!-- 推計（点線） -->
+          <polyline points="388.6,99 475.4,68.6 680,29.4" fill="none" stroke="#e08a2b" stroke-width="3" stroke-dasharray="7 5"/>
+          <!-- 点とラベル -->
+          <g font-size="14" fill="#1f2933" font-weight="700">
+            <circle cx="60" cy="258.5" r="4" fill="#1c5f96"/><text x="46" y="278">7.1%</text><text x="40" y="330" font-size="13" font-weight="400">1970</text>
+            <circle cx="208.8" cy="207.8" r="4" fill="#1c5f96"/><text x="188" y="197">14.1%</text><text x="190" y="330" font-size="13" font-weight="400">1994</text>
+            <circle cx="289.4" cy="154.1" r="4" fill="#1c5f96"/><text x="270" y="143">21.5%</text><text x="271" y="330" font-size="13" font-weight="400">2007</text>
+            <circle cx="388.6" cy="99" r="5" fill="#1c5f96"/><text x="368" y="88">29.1%</text><text x="371" y="330" font-size="13" font-weight="400">2023</text>
+            <circle cx="475.4" cy="68.6" r="4" fill="#e08a2b"/><text x="456" y="57" fill="#c96a10">33.3%</text><text x="457" y="330" font-size="13" font-weight="400" fill="#c96a10">2037</text>
+            <circle cx="680" cy="29.4" r="5" fill="#e08a2b"/><text x="636" y="20" fill="#c96a10">38.7%</text><text x="662" y="330" font-size="13" font-weight="400" fill="#c96a10">2070</text>
+          </g>
+        </svg>
+        <div class="legend"><span><i></i>実績（1970〜2023年）</span><span><i class="dash"></i>将来推計（2037・2070年）</span></div>
+        <p class="src">出典：内閣府『令和6年版 高齢社会白書』、国立社会保障・人口問題研究所「日本の将来推計人口」。<a href="https://www8.cao.go.jp/kourei/whitepaper/w-2024/html/zenbun/s1_1_1.html" target="_blank" rel="noopener">高齢社会白書（内閣府）↗</a></p>
+      </div>
+
+      <div class="chart-box">
+        <h3>グラフ②　65歳以上人口の内訳（2023年）</h3>
+        <p class="cap">65歳以上のうち、とくに「75歳以上（後期高齢者）」が2,008万人と多くを占めています。</p>
+        <svg viewBox="0 0 720 200" role="img" aria-label="65歳以上人口の内訳" style="width:100%;min-width:520px;height:auto">
+          <text x="10" y="55" font-size="16" fill="#1f2933">65〜74歳</text>
+          <rect x="140" y="35" width="326" height="34" fill="#5f9bd1" rx="4"/>
+          <text x="474" y="59" font-size="16" font-weight="700" fill="#1c5f96">1,615万人（13.0%）</text>
+          <text x="10" y="120" font-size="16" fill="#1f2933">75歳以上</text>
+          <rect x="140" y="100" width="405" height="34" fill="#1c5f96" rx="4"/>
+          <text x="553" y="124" font-size="16" font-weight="700" fill="#1c5f96">2,008万人（16.1%）</text>
+          <text x="10" y="180" font-size="14" fill="#4a545e">※割合は総人口（1億2,435万人）に占める割合</text>
+        </svg>
+        <p class="src">出典：内閣府『令和6年版 高齢社会白書』（令和5年10月1日現在）。</p>
+      </div>
+
+      <div class="takeaway">
+        <strong>ポイント：</strong> 高齢者の数は2043年ごろまで増え続け、ピークは約<strong>3,953万人</strong>と推計されています。
+        とくに一人暮らしの高齢者が増えており、「毎日、誰かと言葉を交わす」機会をどう保つかが、大きな課題になっています。
+        <br>→ <a href="needs.html">高齢者が必要としている支援を見る</a> ／ <a href="conversation.html">会話が心と体に与える影響を見る</a>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;">
+        <a href="contact.html" class="btn btn-primary">はなそうの無料体験を申し込む</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>
+      <a href="service.html">サービス内容</a>
+      <a href="pricing.html">料金</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about.html">運営者</a>
+      <a href="contact.html">お申し込み</a>
+      <a href="population.html">高齢者の現状データ</a>
+      <a href="needs.html">必要とされる支援</a>
+      <a href="conversation.html">会話の大切さ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    </div>
+    <div>
+      個人運営のため、対応できる件数には限りがあります。あらかじめご了承ください。<br>
+      本サービスは医療行為・介護サービスではなく、「日常会話」と「さりげない見守り」を目的としたものです。
+    </div>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a href="tel:080-8079-9969"><span class="ring" aria-hidden="true">📞</span> 電話で申し込む（無料）</a>
+</div>
+
+<button id="toTop" class="to-top" aria-label="ページの先頭へ戻る">↑</button>
+
+<script src="script.js"></script>
+<!-- Cloudflare Web Analytics (自分のPC除外スイッチ付き) --><script>(function(){try{var p=new URLSearchParams(location.search);if(p.get('noanalytics')==='1'){localStorage.setItem('hanaso_noanalytics','1');}if(p.get('noanalytics')==='0'){localStorage.removeItem('hanaso_noanalytics');}if(localStorage.getItem('hanaso_noanalytics')==='1')return;}catch(e){}var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token":"f3c9da35593b4c3c97a1c532ad33f6d2"}');document.head.appendChild(s);})();</script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
