@@ -965,3 +965,12 @@
 .related-card .rc-body{ display:flex; flex-direction:column; }
 .related-card .rc-title{ font-weight:800; color:#1c5f96; font-size:18px; }
 .related-card .rc-desc{ color:#4a545e; font-size:14px; margin-top:2px; }
+
+
+/* 歌の出張 告知バナー */
+.singing-banner{ display:flex; align-items:center; gap:18px; background:linear-gradient(135deg,#f6b73c,#ef8f3c); color:#4a2e06; text-decoration:none; border-radius:16px; padding:18px 24px; box-shadow:0 10px 26px rgba(239,143,60,.25); }
+.singing-banner:hover{ filter:brightness(1.04); }
+.singing-banner .sb-emoji{ font-size:38px; line-height:1; }
+.singing-banner .sb-text{ font-size:18px; line-height:1.6; }
+.singing-banner .sb-text strong{ display:block; font-size:21px; }
+.singing-banner .sb-more{ font-weight:800; white-space:nowrap; }
