@@ -974,3 +974,16 @@
 .singing-banner .sb-text{ font-size:18px; line-height:1.6; }
 .singing-banner .sb-text strong{ display:block; font-size:21px; }
 .singing-banner .sb-more{ font-weight:800; white-space:nowrap; }
+
+
+/* ほかの見守りとの比較表 */
+.compare-wrap{ overflow-x:auto; margin:16px 0; }
+.compare-table{ width:100%; border-collapse:collapse; min-width:580px; background:#fff; border:1px solid #e2ddcf; border-radius:12px; overflow:hidden; }
+.compare-table th, .compare-table td{ padding:12px 14px; border:1px solid #e7e2d6; text-align:center; font-size:16px; line-height:1.5; }
+.compare-table thead th{ background:#eef4f9; color:#1f2933; }
+.compare-table thead th.hana{ background:#1c5f96; color:#fff; }
+.compare-table td:first-child, .compare-table th:first-child{ text-align:left; font-weight:700; background:#faf8f3; }
+.compare-table td.hana{ background:#eaf4fd; font-weight:700; color:#1f2933; }
+.compare-table .o{ color:#1c7a2c; font-weight:800; font-size:20px; }
+.compare-table .x{ color:#b0431f; font-weight:800; }
+.compare-table .t{ color:#b8860b; font-weight:800; }
