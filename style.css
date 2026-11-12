@@ -987,3 +987,13 @@
 .compare-table .o{ color:#1c7a2c; font-weight:800; font-size:20px; }
 .compare-table .x{ color:#b0431f; font-weight:800; }
 .compare-table .t{ color:#b8860b; font-weight:800; }
+
+
+/* はじめ方 3ステップ */
+#flow .flow3{ display:flex; align-items:stretch; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+#flow .flow3-step{ flex:1 1 240px; max-width:320px; background:#fff; border:1px solid #e7e2d6; border-radius:16px; padding:22px 20px; text-align:center; box-shadow:0 8px 24px rgba(28,95,150,.08); }
+#flow .flow3-step .n{ width:46px; height:46px; margin:0 auto 10px; border-radius:50%; background:#1c5f96; color:#fff; font-size:24px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+#flow .flow3-step h3{ margin:0 0 6px; font-size:19px; color:#1c5f96; }
+#flow .flow3-step p{ margin:0; font-size:16px; color:#3a4149; line-height:1.6; }
+#flow .flow3-arrow{ align-self:center; color:#9fb4c6; font-size:24px; font-weight:800; }
+@media (max-width:720px){ #flow .flow3-arrow{ transform:rotate(90deg); } }
